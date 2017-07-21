@@ -1,3 +1,10 @@
 body {
-  background-color: black;
-  color: whitesmoke; }
+  background-color: black; }
+
+body {
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Open Sans'; }
+
+footer {
+  color: #C2C2C2; }

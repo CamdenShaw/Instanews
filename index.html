@@ -6,26 +6,29 @@
     <title>Instanews</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type='text/css' rel='stylesheet' href='styles/fonts/stylesheet.css'>
     <link type = 'text/css' rel='stylesheet' href='build/css/style.min.css'>
     <link type = 'text/css' rel='stylesheet' href = 'normalize.css'>
   </head>
   <body>
-    <p>HTML is working</p>
-    <section></section>
-    <form>
-      <p> choose a selector </p>
-      <select>
-        <option>books</option>
-        <option>community</option>
-        <option>movies</option>
-        <option>top stories</option>
+    <p class='invisible'>Instanews </br>-- HTML is working --</p>
+    <section class='logo'></section>
+    <form class='art-type'>
+      <p class='instructions'> choose a selector </p>
+      <select class='selector'>
+        <option id='no'>--CHOOSE--</option>
+        <option id='books' class='books'>books</option>
+        <option id='commune' class='commune'>community</option>
+        <option id='film' class='film'>movies</option>
+        <option id='trump-trump-drumpf' class='trump-trump-drumpf'>top stories</option>
       </select>
     </form>
-    <footer>
-      <p> © Copyright 2016 Instanews</p>
-        <script src="http://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+    <footer class='stinky'>
+      <p class ='feet'> © Copyright 2016 Instanews</p>
+    </footer>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
     <script src="./build/js/cup-a-joe.min.js"></script>
   </body>
 </html>
