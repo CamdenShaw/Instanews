@@ -2,7 +2,7 @@
 
 var menu = $('.selector');
 var aPIKey = 'ea94cfe26458489e895da92d99390de0';
-var artImg, artCapt, artUrl = $('.articles');
+var artItems, artImg, artCapt, artUrl, artList = $('.articles');
 var nYTUrl = '';
 
 menu.change( function(event) {
@@ -10,12 +10,15 @@ menu.change( function(event) {
 
   var selected = $('.selector').val();
 
+  artList.empty();
+
   if (selected === 'books') {
     alert( 'books has been clicked and listened too' );
     nYTUrl = 'https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json';
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
     });
+    console.log(nYTUrl);
   }
   else if (selected === 'community') {
     alert( 'community has been clicked and listened too');
@@ -23,6 +26,7 @@ menu.change( function(event) {
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
     });
+    console.log(nYTUrl);
   }
   else if (selected === 'movies') {
     alert( 'movies has been clicked and listened too');
@@ -30,6 +34,7 @@ menu.change( function(event) {
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
     });
+    console.log(nYTUrl);
   }
   else if (selected === 'top stories'){
     alert('top stories has been clicked and listened too');
@@ -37,11 +42,14 @@ menu.change( function(event) {
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
     });
+    console.log(nYTUrl);
   }
+  
 
-  $ajax ({
+  $.ajax ({
     method: 'GET',
-    url: nYTUrl
+    url: nYTUrl,
+    dataType: 'json'
   })
   .done(function(data){
 
@@ -49,11 +57,21 @@ menu.change( function(event) {
     console.log(artData);
     $.each(artData, function(key, value){
 
-      // artImg = ;
-      // artCapt = ;
-      // artUrl = ;
+      // artUrl += '<a href="' + value.multimedia.url + '"</a>';
+      // console.log(artUrl);
+      artImg = '<img src="' + value.multimedia.src + /* + artUrl + */'"/>';
+      console.log(artImg);
+      artCapt = '<p>' + value.summary_short + '"</p>';
+      console.log(artCapt);
 
-    });// close .each
+      artItems += '<li>' + artImg + artCapt + '</li>';
 
-  })// close .done
-});// close .change
+      console.log(artItems);
+
+    }); // close .each
+    artList.append(artItems);
+  }) // close .done
+  .fail (function(){
+    alert('failure to load.  Please try again.')
+  }); // close .fail
+}); // close .change
