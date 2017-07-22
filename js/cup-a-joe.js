@@ -2,7 +2,7 @@
 
 var menu = $('.selector');
 var aPIKey = 'ea94cfe26458489e895da92d99390de0';
-var artItems, artImg, artCapt, artUrl, artList = $('.articles');
+var artItems, artTitle, artImg, artCapt, artUrl, artList = $('.articles');
 var nYTUrl = '';
 
 menu.change( function(event) {
@@ -18,7 +18,7 @@ menu.change( function(event) {
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
     });
-    console.log(nYTUrl);
+    //console.log(nYTUrl);
   }
   else if (selected === 'community') {
     alert( 'community has been clicked and listened too');
@@ -26,7 +26,7 @@ menu.change( function(event) {
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
     });
-    console.log(nYTUrl);
+    //console.log(nYTUrl);
   }
   else if (selected === 'movies') {
     alert( 'movies has been clicked and listened too');
@@ -34,7 +34,7 @@ menu.change( function(event) {
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
     });
-    console.log(nYTUrl);
+    //console.log(nYTUrl);
   }
   else if (selected === 'top stories'){
     alert('top stories has been clicked and listened too');
@@ -42,7 +42,7 @@ menu.change( function(event) {
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
     });
-    console.log(nYTUrl);
+    //console.log(nYTUrl);
   }
   
 
@@ -56,20 +56,38 @@ menu.change( function(event) {
     var artData = data.results;
     console.log(artData);
     $.each(artData, function(key, value){
+      if (selected === 'books') {
+        // var author = '<p>"' + value.author + '"</p>';
+        var arrUrl = value.sunday_review_link;
+        // artUrl = '<a href="' + arrUrl.slice(5) + '" target="_blank">';
+        console.log(arrUrl);
+        // artTitle = '<p>' + artUrl + value.title + '</a></p>';
+        // artCapt = '<p>' + value.description + '</p>';
 
-      // artUrl += '<a href="' + value.multimedia.url + '"</a>';
-      // console.log(artUrl);
-      artImg = '<img src="' + value.multimedia.src + /* + artUrl + */'"/>';
-      console.log(artImg);
-      artCapt = '<p>' + value.summary_short + '"</p>';
-      console.log(artCapt);
+        // artItems += '<li>' + artTitle + author + artCapt + '</li>';
+        //console.log(artItems);
+      }
+      else if (selected === 'community') {
 
-      artItems += '<li>' + artImg + artCapt + '</li>';
+      }
+      else if (selected === 'movies') {
+        artImg = '<img src="' + value.multimedia.src + '"/>';
+        //console.log(artImg);
+        artUrl = '<a href="' + value.link.url + '"target="_blank">' + artImg + '</a>';
+        //console.log(artUrl);
+        artCapt = '<p>' + value.summary_short + '"</p>';
+        //console.log(artCapt);
 
-      console.log(artItems);
+        artItems += '<li>' + artUrl + artCapt + '</li>';
 
+        //console.log(artItems);
+      }
+      else if (selected === 'top stories') {
+
+      }
     }); // close .each
     artList.append(artItems);
+    // console.log(arrUrl);
   }) // close .done
   .fail (function(){
     alert('failure to load.  Please try again.')
