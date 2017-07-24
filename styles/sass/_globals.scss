@@ -2,3 +2,11 @@
 body {
   background-color: black;
 }
+
+#everything {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+  height: 100vh;
+}

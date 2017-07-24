@@ -1,11 +1,16 @@
+.invisible {
+  display: none;
+}
+
 .logo-container {
-  display: flexbox;
+  display: flex;
+  justify-content: center;
+  align-content: center;
   .logo {
     background: url('../../assets/images/nyt-logo.svg');
     width: 100%;
-    background-position: center, center;
+    background-position: center center;
     background-repeat: no-repeat;
-    
     height: 300px;
   }
 }
