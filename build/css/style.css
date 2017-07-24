@@ -415,3 +415,12 @@ body {
 
 footer {
   color: #C2C2C2; }
+
+.logo-container {
+  display: flexbox; }
+  .logo-container .logo {
+    background: url("../../assets/images/nyt-logo.svg");
+    width: 100%;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    height: 300px; }
