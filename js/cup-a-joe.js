@@ -2,8 +2,9 @@
 
 var menu = $('.selector');
 var aPIKey = 'ea94cfe26458489e895da92d99390de0';
-var artItems, artTitle, artImg, artCapt, artUrl, author, director, artList, $artList = $('.articles');
+var artTitle, artItems, artCapt, artUrl, author, director, artList, $artList = $('.articles');
 var nYTUrl, arrImg = '';
+var artImg = [];
 
 menu.change( function(event) {
   event.preventDefault();
@@ -58,30 +59,34 @@ menu.change( function(event) {
     url: nYTUrl,
     dataType: 'json'
   }) // close ajax declaration
+  
   .done(function(data){
     var artData = '';
     var filterData = '';
 
-      function filterItems(query) {
-        return filterData.filter(function(el) {
-          return el.toString().toLowerCase().indexOf(query.toLowerCase()) > -1;
-        }) // close function in 1st return
-      } //  close query function
+    artData = data.results;
+    //console.log(filterData);
 
-    filterData = data.results;
-    artData = filterItems('', null, 'undeclared', undefined, 0, '0');
-    console.log(artData);
-
-    
+    // function filterItem (item){
+    //     return item.toString().length > 0;
+    //   }
 
     $.each(artData, function(key, value){
 
+      artImg = value.multimedia[4].url;
 
-        if (selected !== 'books' || selected !== 'community' || selected !== 'movies' || selected !== '--top stories--' || selected !== '--section--' ) {
+      var artData2 = artData.filter(function(artImg){
+        return artImg.length ;
+      });
+
+      console.log(artData2);
+
+        //console.log(artData2);
+
+        if (selected === 'home' || selected !== 'arts' || selected !== 'business' || selected === 'sports' || selected === 'technology' || selected === 'fashion') {
           // var array = value.multimedia;
           // arrImg = array.slice(0,1);
           // console.log(arrImg);
-
           artImg = value.multimedia[4].url;
           console.log(artImg);
           // console.log(filterItems('a'));
@@ -107,7 +112,7 @@ menu.change( function(event) {
         artCapt = '<p>' + value.summary_short + '"</p>';
         //console.log(artCapt);
 
-        artItems += '<li>' + artUrl + artCapt + '</li>';
+        artItems.push('<li>' + artUrl + artCapt + '</li>');
 
         //console.log(artItems);
       } // close movies if statement
