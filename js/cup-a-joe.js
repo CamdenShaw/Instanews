@@ -21,8 +21,6 @@ menu.change( function(event) {
       'api-key': aPIKey
     }); // close parameters declaration
 
-    
-
     //console.log(nYTUrl);
   }// close books if statement
 
@@ -43,7 +41,10 @@ menu.change( function(event) {
       'api-key': aPIKey
     }); // close parameters declaration
     //console.log(nYTUrl);
+      console.log('nYTUrl');
   } //  close top stories if statement
+
+
   
   $.ajax ({
     method: 'GET',
