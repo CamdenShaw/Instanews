@@ -63,6 +63,9 @@ menu.change( function(event) {
   .done(function(data){
     var artData = '';
     var filterData = '';
+    var artData2 = [];
+    var i=0;
+    artData2 = [];
 
     artData = data.results;
     //console.log(filterData);
@@ -75,11 +78,12 @@ menu.change( function(event) {
 
       artImg = value.multimedia[4].url;
 
-      var artData2 = artData.filter(function(artImg){
-        return artImg.length ;
-      });
-
-      console.log(artData2);
+      if (!!artImg && typeof artImg === 'string'){
+        artData2.push(data.results[i]);
+        artData = artData2.slice(0, 12);
+        i++;
+      }
+      console.log('count', i, 'art', artData, 'art2', artData2);
 
         //console.log(artData2);
 
