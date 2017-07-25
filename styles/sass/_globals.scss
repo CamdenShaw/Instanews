@@ -1,4 +1,6 @@
-
+html {
+  line-height: 1.01em;
+}
 body {
   background-color: black;
 }
@@ -9,4 +11,5 @@ body {
   align-content: space-between;
   justify-content: space-between;
   height: 100vh;
+  z-index:1;
 }

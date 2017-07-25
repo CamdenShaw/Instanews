@@ -3,58 +3,129 @@
 }
 .container {
   height: 400px;
-  transition: all 0.6s ease;
+  transition: all 1s ease;
+  @include mobile{
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all 1s ease;
+  }
+  @include tablet{
+    transition: all 1s ease;
+  }
+  @include desktop {
+    transition: all 1s ease;
+  }
 }
 
 .logo-container {
   display: flex;
   justify-content: center;
   align-content: center;
-  padding-top: 45vh;
-  transition: all 0.6s ease;
+  align-self: center;
+  padding-top: 44vh;
+  transition: all 1s ease;
+  @include mobile {
+    padding: 0;
+    flex-basis: 300px;
+    flex-grow: 2;
+    transition: all 1s ease;
+  }
   .logo {
     margin-top: -150px;
     margin-left: 0px;
-    background: url('../../assets/images/nyt-logo.svg');
+    background-image: url('../../assets/images/nyt-logo.svg');
     width: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     height: 225px;
-    transition: all 0.6s ease;
+    transition: all 1s ease;
+    @include mobile {
+      background-position: 26vw center;
+      margin: 0;
+      height: 25vw;
+      background-size: contain;
+      transition: all 1s ease;
+    }
   }
 }
 
 .form-container {
   justify-content: center;
-  margin-top: 1px;
+  margin: 20px 0 30px;
   padding:0;
   display: flex;
-  transition: all 0.6s ease;
+  transition: all 1s ease;
+  flex-grow: 3;
+  @include mobile {
+    margin:0;
+    padding: 0;
+    align-content: left;
+    flex-basis: 300px;
+    transition: all 1s ease;
+  }
   .instructions {
-    align-self: center;
+    align-self: left;
     margin-top: 0;
     margin-bottom: 2vh;
     padding: 0;
-    transition: all 0.6s ease;
+    transition: all 1s ease;
+    align-self: left;
+  }
+  @include mobile {
+    .art-type{
+      padding-right: 26vw;
+      transition: all 1s ease;
+    }
   }
 }
 
 .container-move {
   height: 250px;
-  transition: all 0.6s ease;
+  @include mobile {
+    transition: all 1s ease;
+    width: 600px
+  }
 }
-.log-container-move {
-  width: 25%;
+
+.logo-container-move {
+  padding-top: 140px;
+  @include mobile {
+    padding: 0;
+    width:20%;
+    margin:0;
+    display: block;
+    height: 15vh;
+    transition: all 1s ease;
+  }
 }
 
 .logo-move {
-  background: url('../../assets/images/nyt-logo.svg');
-  transform: translate(-25%, -100px) scale(0.8);
-  transition: all 0.6s ease;
+  margin-top: 40px;
+  transform: scale(0.7);
+  transition: all 1s ease;
+  z-index:1;
+  @include mobile {
+    background-position: 10vw center;
+    margin: 0;
+    left: 0;
+    height: 10vw;
+    background-size: contain;
+    transition: all 1s ease;
+  }
 }
 
 .form-container-move {
-  justify-content: center;
-  margin-top: 30px;
-  transition: all 0.6s ease;
+  transform: translate(0, -25px);
+  margin: 5px 0 5px;
+  transition: all 1s ease;
+  z-index:1;
+  @include mobile {
+    margin:0;
+    padding: 0;
+    align-content: left;
+    flex-basis: 300px;
+    transition: all 1s ease;
+  }
 }

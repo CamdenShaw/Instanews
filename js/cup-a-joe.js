@@ -10,29 +10,38 @@ var oldHeight = heightPH.height;
 console.log('height', oldHeight);
 var clickCount = 0;
 
-menu.change( function(event) {
-  event.preventDefault();
+function load (){
+  $('.load').toggleClass('loaded');
+  $('.load-screen').toggleClass('loaded-screen');
+  $('.load-wrapper').toggleClass('loaded-wrapper');
+}
 
+load();
+
+menu.change(function(event) {
+  event.preventDefault();
+  
+  load();
 
 
   var selected = $('.selector').val();
 
-  clickCount++;
   
-  if (clickCount > 0 || selected === '--top stories--' && clickCount > 0 || selected === '--selection--'){
+  if (clickCount === 0 && selected !== '--top stories--' && selected !== '--selection--'){
 
+    clickCount++;
     $('.container').toggleClass('container-move');
-    $('.logo').toggleClass('logo-move');
     $('.logo-container').toggleClass('logo-container-move');
+    $('.logo').toggleClass('logo-move');
     $('.form-container').toggleClass('form-container-move');
-
-  }
+    $('.instructions').toggleClass('instructions-move');
+  } //  close if statement for selection animation
 
   $artList.empty();
   artList, artItems = '';
 
   if (selected === 'books') {
-    alert( 'books has been clicked and listened too' );
+   //alert( 'books has been clicked and listened too' );
     nYTUrl = 'https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json';
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
@@ -42,7 +51,7 @@ menu.change( function(event) {
   }// close books if statement
 
   else if (selected === 'movies') {
-    alert( 'movies has been clicked and listened too');
+   //alert( 'movies has been clicked and listened too');
     nYTUrl = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json';
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
@@ -51,14 +60,14 @@ menu.change( function(event) {
   } //  close movies if statement
 
   else {
-    alert('top stories has been clicked and listened too');
+    //alert('top stories has been clicked and listened too');
 
     nYTUrl = 'https://api.nytimes.com/svc/topstories/v2/' + selected + '.json';
     nYTUrl += '?' + $.param({
       'api-key': aPIKey
     }); // close parameters declaration
     //console.log(nYTUrl);
-      console.log('nYTUrl');
+      //console.log('nYTUrl');
   } //  close top stories if statement
 
 
@@ -88,7 +97,7 @@ menu.change( function(event) {
 
       artImg = value.multimedia;
 
-      console.log(artImg.length);
+      //console.log(artImg.length);
 
       if (artImg.length > 1){
         artData2.push(data.results[i]);
@@ -98,9 +107,9 @@ menu.change( function(event) {
       else {
         i++;
       }
-      console.log('count', i, 'art', artData, 'art2', artData2);
+      // console.log('count', i, 'art', artData, 'art2', artData2);
 
-      console.log('art',artData);
+      // console.log('art',artData);
     } // close set top stories variables IF statement
 
     else if (selected === 'books'){
@@ -117,7 +126,7 @@ menu.change( function(event) {
       else {
         i++;
       }
-      console.log('count', i, '/nart', artData, '/nart2', artData2);
+      //console.log('count', i, '/nart', artData, '/nart2', artData2);
     } //  close set books variables IF statement
 
     else if (selected === 'movies'){
@@ -140,14 +149,14 @@ menu.change( function(event) {
     } //  close set movies variables IF statement
     
     })
-    $.each(artData, function(kay, value){
+    $.each(artData, function(key, value){
         if (selected != 'books' && selected != 'movies' && selected != '--top stories--' && selected != '--sections--') {
 
           // var array = value.multimedia;
           // arrImg = array.slice(0,1);
           // console.log(arrImg);
           artImg = value.multimedia[4].url;
-          console.log(artImg);
+          //console.log(artImg);
           // console.log(filterItems('a'));
           //console.log(artImg);
           artUrl = '<a href="' + value.url + '" target="_blank"><img src="' + artImg + '"></a>';
@@ -174,32 +183,33 @@ menu.change( function(event) {
       } // close movies if statement
 
       else if (selected === 'books') {
-        var author = '<h3>"' + value.author + '"</h3>';
+        var author = '<h3 class="author">"' + value.author + '"</h3></div>';
         var arrUrl = '';
         arrUrl = value.sunday_review_link;
           artUrl = '<a href="' + arrUrl + '" target="_blank">';
-          console.log(arrUrl);
-          artTitle = '<h2>' + artUrl + value.title + '</a></h2>';
+          //console.log(arrUrl);
+          artTitle = '<div class=words><h2 class="title">' + artUrl + value.title + '</a></h2>';
           artCapt = '<div class="caption"><p class="text">' + value.description + '</p></div>';
           artItems += '<li><div class="art-container">' + artTitle + author + artCapt + '</div></li>';
           //console.log(artItems);
 
       } //  close book reviews if statement
-      else {
-
-      }
 
     }); // close .each
-console.log(artItems);
+//console.log(artItems);
     $artList.append(artItems);
 
   var mediaHeight = $('.media-container').height;
   heightPH.style.height = oldHeight + mediaHeight;
-  console.log('new height', $('.everything').height)
+
+  $('.articles').load('../../index.html', load());
+  //console.log('new height', $('.everything').height)
     // console.log(arrUrl);
   }) // close .done
 
   .fail (function(){
-    alert('failure to load.  Please try again.')
+    alert('failure to load.  Please try again.');
+    location.reload();
   }); // close .fail
+  load();
 }); // close .change
