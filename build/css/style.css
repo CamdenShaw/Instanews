@@ -419,20 +419,37 @@ body {
   font-weight: 300;
   font-style: normal; }
 
+@font-face {
+  font-family: 'Open Sans-bold';
+  src: url("../../styles/fonts/OpenSans-Bold.eot");
+  src: url("../../styles/fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("../../styles/fonts/OpenSans-Bold.woff2") format("woff2"), url("../../styles/fonts/OpenSans-Bold.woff") format("woff"), url("../../styles/fonts/OpenSans-Bold.ttf") format("truetype"), url("../../styles/fonts/OpenSans-Bold.svg#OpenSans-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
 body {
   color: #fff;
   font-size: 16px;
   font-family: 'Open Sans'; }
 
+.instructions {
+  font-size: 0.84rem;
+  text-align: center; }
+
 .selector {
-  font-size: 16px;
-  font-family: 'Open Sans'; }
+  font-size: 1.1em;
+  font-family: 'Open Sans';
+  line-height: 0;
+  font-weight: 900; }
 
 footer {
-  color: #C2C2C2; }
+  font-size: 0.9rem;
+  color: #c2c2c2; }
 
 .invisible {
   display: none; }
+
+.container {
+  height: 400px; }
 
 .logo-container {
   display: -webkit-box;
@@ -442,10 +459,51 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center; }
+      align-content: center;
+  padding-top: 45vh; }
   .logo-container .logo {
+    margin-top: -150px;
     background: url("../../assets/images/nyt-logo.svg");
     width: 100%;
     background-position: center center;
     background-repeat: no-repeat;
-    height: 300px; }
+    height: 225px; }
+
+.form-container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1px;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .form-container .instructions {
+    margin-top: 0;
+    margin-bottom: 2vh;
+    padding: 0; }
+
+.media-container {
+  margin: 0;
+  padding: 5px; }
+
+.articles {
+  margin: 0;
+  padding: 0; }
+  .articles ul {
+    margin: 0;
+    padding: 0; }
+  .articles li {
+    margin: 0;
+    padding: 0;
+    display: block; }
+    .articles li img {
+      width: 100%; }
+
+.stinky {
+  -ms-flex-item-align: center;
+      align-self: center; }
+  .stinky .feet {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 0; }

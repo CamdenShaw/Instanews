@@ -7,31 +7,32 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type = 'text/css' rel='stylesheet' href='build/css/style.min.css'>
-    <link type = 'text/css' rel='stylesheet' href = 'styles/normalize.css'>
   </head>
   <body>
     <div id='everything'>
       <h1 class='invisible'>Instanews </br>-- HTML is working --</h1>
-      <header class= 'logo-container'>
-        <section class='logo'><section>
+      <header class= 'container'>
+        <div class='logo-container'>
+          <section class='logo'><section>
+        </div>
+        <section class='form-container'>
+          <form class='art-type'>
+            <p class='instructions'> Choose a section: </p>
+            <select class='selector'>
+              <option id='no'>--sections--</option>
+              <option class='books'>books</option>
+              <option class='film'>movies</option>
+              <option id='no'>--top stories--</option>
+              <option class='home'>home</option>
+              <option class='arts'>arts</option>
+              <option class='business'>business</option>
+              <option class='sports'>sports</option>
+              <option class='technology'>technology</option>
+              <option class='fashion'> fashion</option>
+            </select>
+          </form>
+        </section>
       </header>
-      <section class='form-container'>
-        <form class='art-type'>
-          <p class='instructions'> choose a selector </p>
-          <select class='selector'>
-            <option id='no'>--sections--</option>
-            <option class='books'>books</option>
-            <option class='film'>movies</option>
-            <option id='no'>--top stories--</option>
-            <option class='home'>home</option>
-            <option class='arts'>arts</option>
-            <option class='business'>business</option>
-            <option class='sports'>sports</option>
-            <option class='technology'>technology</option>
-            <option class='fashion'> fashion</option>
-          </select>
-        </form>
-      </section>
       <section class='media-container'>
         <ul class='articles' value='article'></ul>
       </section>

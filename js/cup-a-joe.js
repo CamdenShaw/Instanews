@@ -5,6 +5,9 @@ var aPIKey = 'ea94cfe26458489e895da92d99390de0';
 var artTitle, artItems, artCapt, artUrl, author, director, artList, artDescript, $artList = $('.articles');
 var nYTUrl, arrImg = '';
 var artImg = [];
+var heightPH = $('.everything');
+var oldHeight = heightPH.height;
+console.log('height', oldHeight);
 
 menu.change( function(event) {
   event.preventDefault();
@@ -175,6 +178,10 @@ menu.change( function(event) {
     }); // close .each
 
     $artList.append(artItems);
+
+  var mediaHeight = $('.media-container').height;
+  heightPH.style.height = oldHeight + mediaHeight;
+  console.log('new height', $('.everything').height)
     // console.log(arrUrl);
   }) // close .done
 
