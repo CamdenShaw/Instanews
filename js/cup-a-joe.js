@@ -8,11 +8,25 @@ var artImg = [];
 var heightPH = $('.everything');
 var oldHeight = heightPH.height;
 console.log('height', oldHeight);
+var clickCount = 0;
 
 menu.change( function(event) {
   event.preventDefault();
 
+
+
   var selected = $('.selector').val();
+
+  clickCount++;
+  
+  if (clickCount > 0 || selected === '--top stories--' && clickCount > 0 || selected === '--selection--'){
+
+    $('.container').toggleClass('container-move');
+    $('.logo').toggleClass('logo-move');
+    $('.logo-container').toggleClass('logo-container-move');
+    $('.form-container').toggleClass('form-container-move');
+
+  }
 
   $artList.empty();
   artList, artItems = '';
@@ -136,25 +150,25 @@ menu.change( function(event) {
           console.log(artImg);
           // console.log(filterItems('a'));
           //console.log(artImg);
-          artUrl = '<a href="' + value.url + '"target="_blank"><img src="' + artImg + '"</img></a>';
+          artUrl = '<a href="' + value.url + '" target="_blank"><img src="' + artImg + '"></a>';
           //console.log(artUrl);
-          artCapt = '<p>' + value.abstract + '</p>';
+          artCapt = '<div class="caption"><p class="text">' + value.abstract + '</p></div>';
           //console.log(artCapt);
 
-          artItems += '<li>' + artUrl + artCapt + '</li>';
+          artItems += '<li><div class="art-container">' + artUrl + artCapt + '</div></li>';
 
           //console.log(artItems);
         } //  close top stories else statement
 
       else if (selected === 'movies') {
-        artImg = '<img src="' + value.multimedia.src + '"/>';
+        artImg = '<img src="' + value.multimedia.src + '">';
         //console.log(artImg);
         artUrl = '<a href="' + value.link.url + '"target="_blank">' + artImg + '</a>';
         //console.log(artUrl);
-        artCapt = '<p>' + value.summary_short + '"</p>';
+        artCapt = '<div class="caption"><p class="text">' + value.summary_short + '"</p></div>';
         //console.log(artCapt);
 
-        artItems += '<li>' + artUrl + artCapt + '</li>';
+        artItems += '<li><div class="art-container">' + artUrl + artCapt + '</div></li>';
 
         //console.log(artItems);
       } // close movies if statement
@@ -166,8 +180,8 @@ menu.change( function(event) {
           artUrl = '<a href="' + arrUrl + '" target="_blank">';
           console.log(arrUrl);
           artTitle = '<h2>' + artUrl + value.title + '</a></h2>';
-          artCapt = '<p>' + value.description + '</p>';
-          artItems += '<li>' + artTitle + author + artCapt + '</li>';
+          artCapt = '<div class="caption"><p class="text">' + value.description + '</p></div>';
+          artItems += '<li><div class="art-container">' + artTitle + author + artCapt + '</div></li>';
           //console.log(artItems);
 
       } //  close book reviews if statement
@@ -176,7 +190,7 @@ menu.change( function(event) {
       }
 
     }); // close .each
-
+console.log(artItems);
     $artList.append(artItems);
 
   var mediaHeight = $('.media-container').height;
