@@ -35,6 +35,7 @@ menu.change(function(event) {
     $('.logo').toggleClass('logo-move');
     $('.form-container').toggleClass('form-container-move');
     $('.instructions').toggleClass('instructions-move');
+    $('.art-type').toggleClass('art-type-move');
   } //  close if statement for selection animation
 
   $artList.empty();

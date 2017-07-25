@@ -1,11 +1,12 @@
 .invisible {
   display: none;
 }
+
 .container {
   height: 400px;
   transition: all 1s ease;
   @include mobile{
-    height: 90vh;
+    margin-top: 40vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -16,6 +17,9 @@
   }
   @include desktop {
     transition: all 1s ease;
+    width:70%;
+    left: 0;
+    top: 0;
   }
 }
 
@@ -32,6 +36,10 @@
     flex-grow: 2;
     transition: all 1s ease;
   }
+  @include desktop {
+    display: block;
+    width: 40%;
+  }
   .logo {
     margin-top: -150px;
     margin-left: 0px;
@@ -42,11 +50,19 @@
     height: 225px;
     transition: all 1s ease;
     @include mobile {
-      background-position: 26vw center;
+      background-position: 17vw center;
       margin: 0;
       height: 25vw;
       background-size: contain;
       transition: all 1s ease;
+    }
+    @include desktop {
+      background-position: 0 center;
+      margin:0;
+      margin-left: 10px;
+      background-size: contain;
+      transition: all 1s ease;
+      width: 90%;
     }
   }
 }
@@ -75,7 +91,7 @@
   }
   @include mobile {
     .art-type{
-      padding-right: 26vw;
+      padding-right: 37vw;
       transition: all 1s ease;
     }
   }
@@ -85,34 +101,40 @@
   height: 250px;
   @include mobile {
     transition: all 1s ease;
-    width: 600px
+    width: 400px;
+    margin-top: 6vh;
+    align-content: left;
+    align-items: left;
   }
 }
 
 .logo-container-move {
-  padding-top: 140px;
+  padding-top: 0px;
+  margin-top:0;
+  height:200px;
+  margin-bottom: 0;
   @include mobile {
-    padding: 0;
-    width:20%;
-    margin:0;
-    display: block;
+    padding: 0 0 0 20px;
+    width: 40%;
+    margin: 30px 0 0 0;
+    display: flex;
     height: 15vh;
     transition: all 1s ease;
   }
-}
-
-.logo-move {
-  margin-top: 40px;
-  transform: scale(0.7);
-  transition: all 1s ease;
-  z-index:1;
-  @include mobile {
-    background-position: 10vw center;
-    margin: 0;
-    left: 0;
-    height: 10vw;
-    background-size: contain;
+  .logo-move {
+    margin-top: 0;
+    transform: scale(0.6);
     transition: all 1s ease;
+    z-index:1;
+    @include mobile {
+      background-position: 50px, center;
+      margin: 0;
+      margin-top: 10px;
+      left: 0;
+      height: 15vw;
+      background-size: contain;
+      transition: all 1s ease;
+    }
   }
 }
 
@@ -127,5 +149,20 @@
     align-content: left;
     flex-basis: 300px;
     transition: all 1s ease;
+  }
+  .instructions-move {
+    margin-top: 10px;
+    padding-left:0;
+    margin-left:0;
+    transition: all 1s ease;
+  }
+  @include mobile {
+    .art-type-move{
+      margin-right: 2vw;
+      padding-left:0;
+      margin-left:0;
+      padding-right: 50px;
+      transition: all 1s ease;
+    }
   }
 }

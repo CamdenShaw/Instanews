@@ -2,18 +2,42 @@
   margin: 0;
   padding: 0;
   z-index:1;
+  @include mobile {
+    margin-top: 150px;
+  }
 }
 
 .articles {
   margin: 0;
   padding: 0;
   z-index:1;
+  @include mobile {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
   ul {
     margin: 0;
     padding: 0;
+    @include mobile {
+      width: 100%;
+      display: flex;
+    }
   }
 }
 
+.articles li {
+  max-height: 425px;
+  @include mobile {
+    display: inline;
+    width: 50%;
+    min-width: 100px;
+    height: 400px;
+    overflow: hidden;
+    flex-flow: row wrap;
+  }
+}
 
 .art-container {
   margin: 0;
@@ -21,6 +45,11 @@
   display: flex;
   position: relative;
   z-index:1;
+  @include mobile {
+    display: block;
+    flex-flow: row wrap;
+    width: 100%;
+  }
   img {
     width: 100%;
     min-width: 400px;
@@ -28,9 +57,14 @@
     flex-wrap: nowrap;
     display: block;
     z-index:1;
-  }
-  li {
-    max-height: 425px;
+    @include mobile {
+      width: 200%;
+      transform: translate(-50%, 0);
+      flex-flow: row wrap;
+      min-width: 0px;
+      max-height: 425px;
+      display: inline;
+    }
   }
 }
 
