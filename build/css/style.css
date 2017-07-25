@@ -448,6 +448,10 @@ body {
 footer {
   font-size: 0.9rem;
   color: #c2c2c2; }
+  @media (min-width: 1000px) {
+    footer {
+      font-size: 1.1rem;
+      line-height: 2; } }
 
 .invisible {
   display: none; }
@@ -625,6 +629,11 @@ footer {
         background-size: contain;
         -webkit-transition: all 1s ease;
         transition: all 1s ease; } }
+    @media (min-width: 1000px) {
+      .logo-container-move .logo-move {
+        background-position: 0, center;
+        height: 10vw;
+        margin-top: 2px; } }
 
 .form-container-move {
   -webkit-transform: translate(0, -25px);
@@ -643,6 +652,9 @@ footer {
           flex-basis: 300px;
       -webkit-transition: all 1s ease;
       transition: all 1s ease; } }
+  @media (min-width: 1000px) {
+    .form-container-move {
+      margin-top: 25px; } }
   .form-container-move .instructions-move {
     margin-top: 10px;
     padding-left: 0;
@@ -663,6 +675,9 @@ footer {
   padding: 0;
   z-index: 1; }
   @media (min-width: 600px) {
+    .media-container {
+      margin-top: 100px; } }
+  @media (min-width: 1000px) {
     .media-container {
       margin-top: 150px; } }
 
@@ -708,6 +723,9 @@ footer {
       -webkit-box-direction: normal;
           -ms-flex-flow: row wrap;
               flex-flow: row wrap; } }
+  @media (min-width: 1000px) {
+    .articles li {
+      width: 25%; } }
 
 .art-container {
   margin: 0;

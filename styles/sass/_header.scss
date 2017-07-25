@@ -135,6 +135,11 @@
       background-size: contain;
       transition: all 1s ease;
     }
+    @include desktop {
+      background-position: 0, center;
+      height: 10vw;
+      margin-top: 2px;
+    }
   }
 }
 
@@ -149,6 +154,9 @@
     align-content: left;
     flex-basis: 300px;
     transition: all 1s ease;
+  }
+  @include desktop {
+    margin-top: 25px;
   }
   .instructions-move {
     margin-top: 10px;
