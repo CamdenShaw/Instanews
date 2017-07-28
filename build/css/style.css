@@ -448,9 +448,10 @@ body {
 footer {
   font-size: 0.9rem;
   color: #c2c2c2; }
+  footer span {
+    text-transform: uppercase; }
   @media (min-width: 1000px) {
     footer {
-      font-size: 1.1rem;
       line-height: 2; } }
 
 .invisible {
@@ -576,6 +577,12 @@ footer {
     -webkit-transition: all 1s ease;
     transition: all 1s ease;
     align-self: left; }
+    @media (min-width: 600px) {
+      .form-container .instructions {
+        font-size: 14.4px; } }
+    @media (min-width: 1000px) {
+      .form-container .instructions {
+        font-size: 16px; } }
   @media (min-width: 600px) {
     .form-container .art-type {
       padding-right: 37vw;

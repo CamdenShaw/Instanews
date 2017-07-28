@@ -88,6 +88,12 @@
     padding: 0;
     transition: all 1s ease;
     align-self: left;
+    @include mobile {
+      font-size: 14.4px;
+    }
+    @include desktop {
+      font-size: 16px;
+    }
   }
   @include mobile {
     .art-type{
