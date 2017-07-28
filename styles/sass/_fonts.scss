@@ -41,8 +41,11 @@ body {
 footer {
   font-size: 0.9rem;
   color: $greyish;
+  span {
+    text-transform: uppercase;
+  }
   @include desktop {
-    font-size: 1.1rem;
+    // font-size: 1.1rem;
     line-height: 2;
   }
 }
