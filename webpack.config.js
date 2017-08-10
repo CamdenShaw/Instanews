@@ -1,5 +1,14 @@
+const webpack = require('webpack');
+const path = require('path');
+const resolve = require('path').resolve;
+const src = resolve(__dirname, 'src');
+const build = resolve(__dirname, 'build');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+
 module.exports = {
-  entry: './js/src/cup-a-joe.js',
+  entry: { 
+    app: './js/src/cup-a-joe.js' 
+  },
   devtool: 'inline-source-map',
   output: {
     filename: './js/bundle.js'

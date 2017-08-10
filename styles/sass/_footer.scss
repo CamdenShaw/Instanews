@@ -1,10 +1,13 @@
-.stinky {
+.footer {
   align-self: center;
   z-index:1;
-  .feet {
+  .tag {
     text-align: center;
     margin-bottom: 50px;
     margin-top: 0;
+    span {
+      text-transform: uppercase;
+    }
     @include desktop {
       text-align: left;
       margin-left: 100px;

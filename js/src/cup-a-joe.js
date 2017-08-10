@@ -1,5 +1,3 @@
-import styles from '../../styles/sass/style.scss';
-
 const menu = $('.selector'),
       heightPH = $('#everything'),
       aPIKey = 'ea94cfe26458489e895da92d99390de0';
@@ -10,16 +8,18 @@ let artTitle, artItems, artCapt, artUrl, author, director, artList, artDescript,
     oldHeight = heightPH.height,
     clickCount = 0;
 
-function load() {
+function loading() {
   $('.load').toggleClass('loaded');
   $('.load-screen').toggleClass('loaded-screen');
   $('.load-wrapper').toggleClass('loaded-wrapper');
-} load();
+}
+
+loading();
 
 menu.change((event) => {
   event.preventDefault();
 
-  load();
+  loading();
   
   let selected = $('.selector').val();
   
@@ -173,11 +173,12 @@ menu.change((event) => {
     let mediaHeight = $('.media-container').height,
         newHeight = oldHeight + mediaHeight;
     heightPH.style.height = newHeight;
-    $('.articles').load('../../index.html', load());
   }) // close .done
   .fail (function(){
     alert('failure to load.  Please try again.');
     location.reload();
-  }); // close .fail
-  load();
-}); // close .change
+  })
+  .always(loading());
+});
+
+$(document).ready();
