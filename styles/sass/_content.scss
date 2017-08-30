@@ -32,15 +32,14 @@
 }
 
 .articles li {
-  max-height: 425px;
-  min-height: 424px;
+  height:400px;
   margin:0;
   padding:0;
   @include mobile {
     display: inline;
     width: 50%;
     min-width: 100px;
-    height: 400px;
+    height: 420px;
     overflow: hidden;
     flex-flow: row wrap;
   }
@@ -55,23 +54,25 @@
 .art-container {
   margin: 0;
   padding: 0;
-  display: flex;
   position: relative;
   max-height: 425px;
   z-index:1;
+  .article-image {
+    height:420px;
+  }
   @include mobile {
     display: block;
     flex-flow: row wrap;
     width: 100%;
   }
   img {
-    height: fit-content;
-    height: 425px;
-    flex-wrap: nowrap;
+    width: fit-content;
+    height: 420px;
+    flex-wrap: wrap;
     display: block;
+    transform: translate(-33.3333%, 0);
     z-index:1;
     @include mobile {
-      transform: translate(-33.3333%, 0);
       flex-flow: row wrap;
       min-width: 0px;
       max-height: 425px;
@@ -83,8 +84,8 @@
 .caption {
   display: block;
   position: absolute;
-  padding: 5px;
-  bottom: -10px;
+  padding: 0px;
+  bottom:  0;
   left: 0;
   right: 0;
   text-align: center;
@@ -99,7 +100,7 @@
 .text {
   top: 50%;
   left: 50%;
-  transform: translate(0, -25%);
+  transform: translate(0, -23%);
   z-index:1;
 }
 
@@ -117,8 +118,9 @@
   width: 100%;
   height: 50px;
   text-align: center;
-  margin: 0;
+  padding-top: 50px;
   z-index:1;
+  padding-bottom: 90px;
 }
 
 .title {
@@ -138,7 +140,7 @@
   } 
 }
 
-words:hover .caption{
+.words:hover .caption{
   height: auto;
 }
 

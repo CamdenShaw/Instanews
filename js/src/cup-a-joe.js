@@ -5,7 +5,7 @@ const menu = $('.selector'),
 let artTitle, artItems, artCapt, artUrl, author, director, artList, artDescript, $artList = $('.articles'),
     nYTUrl, arrImg = '',
     artImg = [],
-    oldHeight = heightPH.height,
+    oldHeight = heightPH,
     clickCount = 0;
 
 function loading() {
@@ -61,7 +61,7 @@ menu.change((event) => {
     }); // close parameters declaration
   } //  close top stories if statement
   
-  $.ajax ({
+  $.ajax({
     method: 'GET',
     url: nYTUrl,
     dataType: 'json'
@@ -124,7 +124,7 @@ menu.change((event) => {
     $.each(artData, (key, value) => {
       if (selected != 'books' && selected != 'movies' && selected != '--top stories--' && selected != '--sections--') {
         artImg = value.multimedia[4].url;
-        artUrl = `<a href="${value.url}" target="_blank"><img src="${artImg}"></a>`;
+        artUrl = `<a href="${value.url}" target="_blank"><div class="article-image" style="background:url(${artImg}) center; background-size: cover;"></div></a>`;
         artCapt = `<div class="caption">
           <p class="text">${value.abstract}</p>
         </div>`;
@@ -170,15 +170,15 @@ menu.change((event) => {
       } //  close book reviews if statement
     }); // close .each
     $artList.append(artItems);
-    let mediaHeight = $('.media-container').height,
+    let mediaHeight = $('.media-container'),
         newHeight = oldHeight + mediaHeight;
-    heightPH.style.height = newHeight;
+    heightPH.style = newHeight;
   }) // close .done
   .fail (function(){
     alert('failure to load.  Please try again.');
     location.reload();
   })
   .always(loading());
-});
+}); 
 
 $(document).ready();

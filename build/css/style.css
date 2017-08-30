@@ -533,6 +533,10 @@ footer {
         background-size: contain;
         -webkit-transition: all 1s ease;
         transition: all 1s ease; } }
+    @media (min-width: 720px) {
+      .logo-container .logo {
+        margin-top: 1vw;
+        paddint-top: 10px; } }
     @media (min-width: 1000px) {
       .logo-container .logo {
         background-position: 0 center;
@@ -603,15 +607,18 @@ footer {
   margin-bottom: 0; }
   @media (min-width: 600px) {
     .logo-container-move {
-      padding: 0 0 0 20px;
-      width: 40%;
-      margin: 30px 0 0 0;
+      width: 75px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       height: 15vh;
       -webkit-transition: all 1s ease;
       transition: all 1s ease; } }
+  @media (min-width: 720px) {
+    .logo-container-move {
+      margin-top: 40px;
+      height: 150px;
+      width: 100px; } }
   .logo-container-move .logo-move {
     margin-top: 0;
     -webkit-transform: scale(0.6);
@@ -621,30 +628,33 @@ footer {
     z-index: 1; }
     @media (min-width: 600px) {
       .logo-container-move .logo-move {
-        background-position: 50px, center;
+        background-position: center;
         margin: 0;
         margin-top: 10px;
         left: 0;
-        height: 15vw;
+        height: 100px;
         background-size: contain;
         -webkit-transition: all 1s ease;
         transition: all 1s ease; } }
+    @media (min-width: 720px) {
+      .logo-container-move .logo-move {
+        background-position: center; } }
     @media (min-width: 1000px) {
       .logo-container-move .logo-move {
-        background-position: 0, center;
+        background-position: center;
         height: 10vw;
-        margin-top: 2px; } }
+        margin-top: 42px; } }
 
 .form-container-move {
   -webkit-transform: translate(0, -25px);
           transform: translate(0, -25px);
-  margin: 5px 0 5px;
+  margin: 5px 0;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
   z-index: 1; }
   @media (min-width: 600px) {
     .form-container-move {
-      margin: 0;
+      margin: 5px 0 0;
       padding: 0;
       -ms-flex-line-pack: left;
           align-content: left;
@@ -712,8 +722,7 @@ footer {
         display: flex; } }
 
 .articles li {
-  max-height: 425px;
-  min-height: 424px;
+  height: 400px;
   margin: 0;
   padding: 0; }
   @media (min-width: 600px) {
@@ -721,7 +730,7 @@ footer {
       display: inline;
       width: 50%;
       min-width: 100px;
-      height: 400px;
+      height: 420px;
       overflow: hidden;
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
@@ -737,12 +746,11 @@ footer {
 .art-container {
   margin: 0;
   padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   position: relative;
   max-height: 425px;
   z-index: 1; }
+  .art-container .article-image {
+    height: 420px; }
   @media (min-width: 600px) {
     .art-container {
       display: block;
@@ -752,18 +760,18 @@ footer {
               flex-flow: row wrap;
       width: 100%; } }
   .art-container img {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    height: 425px;
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 420px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     display: block;
+    -webkit-transform: translate(-33.3333%, 0);
+            transform: translate(-33.3333%, 0);
     z-index: 1; }
     @media (min-width: 600px) {
       .art-container img {
-        -webkit-transform: translate(-33.3333%, 0);
-                transform: translate(-33.3333%, 0);
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
             -ms-flex-flow: row wrap;
@@ -775,8 +783,8 @@ footer {
 .caption {
   display: block;
   position: absolute;
-  padding: 5px;
-  bottom: -10px;
+  padding: 0px;
+  bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
@@ -791,8 +799,8 @@ footer {
 .text {
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(0, -25%);
-          transform: translate(0, -25%);
+  -webkit-transform: translate(0, -23%);
+          transform: translate(0, -23%);
   z-index: 1; }
 
 .words {
@@ -813,8 +821,9 @@ footer {
   width: 100%;
   height: 50px;
   text-align: center;
-  margin: 0;
-  z-index: 1; }
+  padding-top: 50px;
+  z-index: 1;
+  padding-bottom: 90px; }
 
 .title {
   margin-bottom: 0;
@@ -830,7 +839,7 @@ footer {
     text-decoration: none;
     text-shadow: 2px 2px 15px lightblue; }
 
-words:hover .caption {
+.words:hover .caption {
   height: auto; }
 
 .art-container:hover .caption {

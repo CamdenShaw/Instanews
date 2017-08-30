@@ -56,6 +56,10 @@
       background-size: contain;
       transition: all 1s ease;
     }
+    @include tablet {
+      margin-top:1vw;
+      paddint-top:10px
+    }
     @include desktop {
       background-position: 0 center;
       margin:0;
@@ -114,12 +118,15 @@
   height:200px;
   margin-bottom: 0;
   @include mobile {
-    padding: 0 0 0 20px;
-    width: 40%;
-    margin: 30px 0 0 0;
+    width: 75px;
     display: flex;
     height: 15vh;
     transition: all 1s ease;
+  }
+  @include tablet {
+    margin-top: 40px;
+    height: 150px;
+    width: 100px;
   }
   .logo-move {
     margin-top: 0;
@@ -127,29 +134,32 @@
     transition: all 1s ease;
     z-index:1;
     @include mobile {
-      background-position: 50px, center;
+      background-position: center;
       margin: 0;
       margin-top: 10px;
       left: 0;
-      height: 15vw;
+      height: 100px;
       background-size: contain;
       transition: all 1s ease;
     }
+    @include tablet {
+      background-position: center;
+    }
     @include desktop {
-      background-position: 0, center;
+      background-position: center;
       height: 10vw;
-      margin-top: 2px;
+      margin-top: 42px;
     }
   }
 }
 
 .form-container-move {
   transform: translate(0, -25px);
-  margin: 5px 0 5px;
+  margin: 5px 0;
   transition: all 1s ease;
   z-index:1;
   @include mobile {
-    margin:0;
+    margin: 5px 0 0;
     padding: 0;
     align-content: left;
     flex-basis: 300px;

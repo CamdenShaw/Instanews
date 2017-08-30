@@ -43,7 +43,7 @@ gulp.task('sass', function() {
     //gulp scripts
 gulp.task( 'scripts', ['lint'], function(){
   //copy all javascript files into a minimized .js file
-  gulp.src('./js/*.js')  // grabs from source folder/js folder/ all files ending in .js
+  gulp.src('./js/src/*.js')  // grabs from source folder/js folder/ all files ending in .js
     .pipe(babel( {
         presets: ['es2015']
     }))
