@@ -39,7 +39,7 @@
     display: inline;
     width: 50%;
     min-width: 100px;
-    height: 420px;
+    height: 400px;
     overflow: hidden;
     flex-flow: row wrap;
   }
@@ -55,10 +55,10 @@
   margin: 0;
   padding: 0;
   position: relative;
-  max-height: 425px;
+  max-height: 400px;
   z-index:1;
   .article-image {
-    height:420px;
+    height:400px;
   }
   @include mobile {
     display: block;
@@ -66,11 +66,12 @@
     width: 100%;
   }
   img {
-    width: fit-content;
-    height: 420px;
+    width: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 400px;
     flex-wrap: wrap;
     display: block;
-    transform: translate(-33.3333%, 0);
     z-index:1;
     @include mobile {
       flex-flow: row wrap;
@@ -89,27 +90,28 @@
   left: 0;
   right: 0;
   text-align: center;
-  background-color: rgba(4, 3, 2, 0.4);
+  background-color: rgba(4, 3, 2, 0.6);
   width: 100%;
-  height: 0;
+  height: auto; 
+  transform-origin: bottom;
+  transform: scaleY(0);
   overflow: hidden;
-  transition: 0.7s ease;
+  transition: 0.5s ease;
   z-index:1;
 }
 
 .text {
-  top: 50%;
   left: 50%;
-  transform: translate(0, -23%);
   z-index:1;
 }
 
 .words {
   margin-top: 20px;
   width: 100%;
-  height: auto;
+  height: 135px;
   display: flexbox;
   flex-direction: column;
+  transform-origin: bottom;
   justify-content: flex-start;
   z-index:1;
 }
@@ -118,9 +120,9 @@
   width: 100%;
   height: 50px;
   text-align: center;
-  padding-top: 50px;
+  margin: 0;
   z-index:1;
-  padding-bottom: 90px;
+  margin-top: 70px;
 }
 
 .title {
@@ -128,6 +130,7 @@
   text-align: center;
   height: 75px;
   z-index:1;
+  line-height: 0.9;
   a {
     width: 100%;
     color: $whiteish;
@@ -141,14 +144,16 @@
 }
 
 .words:hover .caption{
-  height: auto;
+  transition: 0.5s ease; 
+  transform-origin: bottom;
+  transform: scaleY(1);
 }
 
 .art-container:hover .caption{
-  height: auto;
+  transition: 0.5s ease; 
+  transform-origin: bottom;
+  transform: scaleY(1);
 }
-
-
 
 .load-wrapper{
   height: 100vh;
@@ -169,7 +174,7 @@
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
   position: relative;
-  transition: all 0.5s 0.3 ease;
+  transition: all 0.2s 0.3 ease;
   z-index: 1001;
 }
 
@@ -182,7 +187,7 @@
   background-color: black;
   opacity: 0.9;
   z-index: 1000;
-  transition: all 0.5s 0.3 ease-in;
+  transition: all 0.2s 0.3 ease-in;
 }
 
 .loaded-screen {
