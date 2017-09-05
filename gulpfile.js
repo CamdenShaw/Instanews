@@ -10,7 +10,7 @@ const   gulp = require('gulp'),
         babel = require('gulp-babel'),
         cssnano = require('gulp-cssnano');
 
-const   input = './js/bundle.js',
+const   input = './js/src/cup-a-joe.js',
         output = './js';
 
 gulp.task('babel', function() {
@@ -20,7 +20,7 @@ gulp.task('babel', function() {
 });
     //lint task
 gulp.task('lint', function(){
-  return gulp.src(['./js/*.js'])
+  return gulp.src(['./js/src/*.js'])
     .pipe(lintCheck())
     .pipe(lintCheck.format())
     .pipe(lintCheck.failAfterError())
@@ -61,8 +61,8 @@ gulp.task('hi', function(){
 
     //gulp watching javascript files in javascript folder
 gulp.task('watch', function(){
-  gulp.watch('./js/*.js', ['scripts'])
-  gulp.watch('./js/*.js', ['babel'])
+  gulp.watch('./js/src/*.js', ['scripts'])
+  gulp.watch('./js/src/*.js', ['babel'])
   gulp.watch('./styles/sass/*.scss', ['sass']);
 });
 
